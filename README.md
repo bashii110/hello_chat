@@ -138,7 +138,8 @@
 
 ---
 
-## 🏗️ Project Structure
+<details>
+<summary>🏗️ Project Structure</summary>
 
 ```
 hello_chat/
@@ -179,6 +180,8 @@ hello_chat/
 └── assets/
     └── images/                       # App icon and static assets
 ```
+
+</details>
 
 ---
 
@@ -334,66 +337,6 @@ flutter build web --release --base-href /hello_chat/
 
 ---
 
-## ⚙️ CI/CD Pipeline
-
-Every push and every release is fully automated via GitHub Actions.
-
-### Continuous Integration — runs on every push
-
-```
-git push origin main
-       ↓
-GitHub Actions starts
-       ↓
-flutter pub get
-flutter analyze
-flutter test
-flutter build apk --debug  ← compile check
-       ↓
-✅ Pass → code is clean
-❌ Fail → you get an email, merge is blocked
-```
-
-### Continuous Deployment — runs when you create a version tag
-
-```
-git tag v1.0.0
-git push origin main --tags
-       ↓
-GitHub Actions starts
-       ↓
-┌─────────────────────────────────────────┐
-│  Job 1: Build signed release APK        │
-│  Job 2: Build Flutter web               │
-│  Job 3: Deploy web → GitHub Pages       │
-│  Job 4: Create GitHub Release + APK     │
-└─────────────────────────────────────────┘
-       ↓
-APK available at: github.com/bashii110/hello_chat/releases
-Web live at:      bashii110.github.io/hello_chat
-```
-
-### Required GitHub Secrets
-
-Go to: **Repo → Settings → Secrets and variables → Actions**
-
-| Secret | Value |
-|---|---|
-| `GOOGLE_SERVICES_JSON` | Full contents of `android/app/google-services.json` |
-| `KEYSTORE_BASE64` | `base64 release-key.jks` output |
-| `KEY_ALIAS` | Your keystore alias (e.g. `hello_chat`) |
-| `KEY_PASSWORD` | Your key password |
-| `STORE_PASSWORD` | Your keystore password |
-
-Create a keystore (run once):
-```bash
-keytool -genkey -v -keystore release-key.jks \
-  -keyalg RSA -keysize 2048 -validity 10000 \
-  -alias hello_chat
-```
-
----
-
 ## 📦 Dependencies
 
 ```yaml
@@ -427,10 +370,10 @@ v1.0  ✅  Real-time messaging
 v1.0  ✅  Read receipts
 v1.0  ✅  Profile photo (Base64 Firestore)
 v1.0  ✅  Contact system (WhatsApp style)
-v1.0  ✅  CI/CD pipeline
 
 v1.1  🔲  Image messages (send photos in chat)
 v1.1  🔲  Push notifications (FCM)
+v1.1  🔲  CI/CD pipeline
 v1.2  🔲  Voice messages
 v1.2  🔲  Group chats
 v1.3  🔲  End-to-end encryption
