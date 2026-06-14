@@ -16,6 +16,8 @@ class _SignupState extends State<Signup> {
   final emailControllor = TextEditingController();
   final passwordControllor = TextEditingController();
   bool loading = false;
+  bool _obscurePassword = true;
+
   final FirebaseAuth auth = FirebaseAuth.instance;
 
   // void dispose() async {
@@ -38,13 +40,13 @@ class _SignupState extends State<Signup> {
 
       setState(() => loading = false);
 
-      Utilities().toastMessage("Verification email sent! Check your inbox and spam folder.");
+      Utilities().toastMessage(
+          "Verification email sent! Check your inbox and spam folder.");
 
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => LoginScreen()),
       );
-
     } on FirebaseAuthException catch (e) {
       setState(() => loading = false);
       Utilities().toastMessage(e.message ?? "Auth error");
@@ -53,8 +55,6 @@ class _SignupState extends State<Signup> {
       Utilities().toastMessage("Error: ${e.toString()}");
     }
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -114,22 +114,27 @@ class _SignupState extends State<Signup> {
                 ),
                 TextFormField(
                   controller: passwordControllor,
-                  obscureText: true,
+                  obscureText: _obscurePassword,
                   decoration: InputDecoration(
-                    hintText: "Enter Password",
-                    suffixIcon: Icon(
-                      Icons.remove_red_eye_outlined,
+                    hintText: 'Enter Password',
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        _obscurePassword
+                            ? Icons.visibility_off_outlined
+                            : Icons.visibility_outlined,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          _obscurePassword = !_obscurePassword;
+                        });
+                      },
                     ),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(17),
                     ),
                   ),
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return "Empty field";
-                    }
-                    return null;
-                  },
+                  validator: (value) =>
+                      value!.isEmpty ? 'Please enter password' : null,
                 ),
                 SizedBox(
                   height: 15,
@@ -169,7 +174,4 @@ class _SignupState extends State<Signup> {
       ),
     );
   }
-
-
-
 }
