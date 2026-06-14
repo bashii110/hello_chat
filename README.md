@@ -12,8 +12,8 @@
 ![Platform](https://img.shields.io/badge/Platform-Android%20%7C%20iOS%20%7C%20Web-9B59B6?style=flat-square)
 ![License](https://img.shields.io/badge/License-MIT-7B2FBE?style=flat-square)
 
-[![CI](https://github.com/bashii110/hello_chat/actions/workflows/flutter_ci.yml/badge.svg)](https://github.com/bashii110/hello_chat/actions/workflows/flutter_ci.yml)
-[![Release](https://github.com/bashii110/hello_chat/actions/workflows/flutter_release.yml/badge.svg)](https://github.com/bashii110/hello_chat/actions/workflows/flutter_release.yml)
+[![Downloads](https://img.shields.io/github/downloads/bashii110/hello_chat/total?style=flat-square&color=9B59B6)](https://github.com/bashii110/hello_chat/releases)
+[![GitHub Release](https://img.shields.io/github/v/release/bashii110/hello_chat?style=flat-square&color=7B2FBE)](https://github.com/bashii110/hello_chat/releases/latest)
 [![Stars](https://img.shields.io/github/stars/bashii110/hello_chat?style=flat-square&color=9B59B6)](https://github.com/bashii110/hello_chat/stargazers)
 [![Issues](https://img.shields.io/github/issues/bashii110/hello_chat?style=flat-square&color=7B2FBE)](https://github.com/bashii110/hello_chat/issues)
 
@@ -42,12 +42,34 @@
 
 <div align="center">
 
-| | | | | |
-|:---:|:---:|:---:|:---:|:---:|
-| ![Splash](https://via.placeholder.com/130x260/4A0080/ffffff?text=Splash) | ![Login](https://via.placeholder.com/130x260/7B2FBE/ffffff?text=Login) | ![Home](https://via.placeholder.com/130x260/9B59B6/ffffff?text=Home) | ![Chat](https://via.placeholder.com/130x260/7B2FBE/ffffff?text=Chat) | ![Profile](https://via.placeholder.com/130x260/4A0080/ffffff?text=Profile) |
-| Splash | Login | Home | Chat Room | Profile |
+<table>
+<tr>
+<td align="center">
+<img src="https://github.com/user-attachments/assets/947df8ae-d5e4-4274-8d5d-c1318c79324d" width="180"/>
+<br><b>Login</b>
+</td>
 
-*Replace placeholders with real screenshots — drag and drop into the `assets/screenshots/` folder*
+<td align="center">
+<img src="https://github.com/user-attachments/assets/c4ad20a0-5820-4ff5-b44a-2db3e306f8f7" width="180"/>
+<br><b>Registration</b>
+</td>
+
+<td align="center">
+<img src="https://github.com/user-attachments/assets/80fc609a-aa44-41f5-b781-6df0782e572b" width="180"/>
+<br><b>Home</b>
+</td>
+
+<td align="center">
+<img src="https://github.com/user-attachments/assets/e0b73b19-527b-4c8f-85c8-78593ed81792" width="180"/>
+<br><b>Chat Room</b>
+</td>
+
+<td align="center">
+<img src="https://github.com/user-attachments/assets/7f14bc61-16e7-4978-b762-22a7a684ba09" width="180"/>
+<br><b>Profile</b>
+</td>
+</tr>
+</table>
 
 </div>
 
@@ -153,11 +175,6 @@ hello_chat/
 │   │
 │   └── utils/
 │       └── utilities.dart            # Toast message helper
-│
-├── .github/
-│   └── workflows/
-│       ├── flutter_ci.yml            # CI — analyze + test on every push
-│       └── flutter_release.yml       # CD — build APK + deploy web on tag
 │
 └── assets/
     └── images/                       # App icon and static assets
